@@ -28,6 +28,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background: linear-gradient(-180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%),
+              url("./assets/background.png"),;
 }
 .content-wrapper {
   height: 100vh;
