@@ -2,9 +2,13 @@
   <div id="app">
     <div class="container">
       <div class="row content-wrapper align-items-center justify-content-center">
-        <div class="xs-12 md-6 md-4">
-          <h1>Ты сегодня покормил кота?</h1>
-          <CardProduct/>
+        <div class="col-12">
+          <h1 class="main-title">Ты сегодня покормил кота?</h1>
+          <div class="row justify-content-around">
+            <div class="col-md-6 col-lg-4" v-for="product in products" :key="product.id">
+              <CardProduct :product="product" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -16,6 +20,42 @@ import CardProduct from './components/CardProduct'
 
 export default {
   name: 'app',
+  data () {
+    return {
+      products: [
+        {
+          id: 1,
+          numberOfServings: 10,
+          taste: 'с фуа-гра',
+          countMouses: 1,
+          weight: 0.5,
+          description: 'Печень утки разварная с артишоками.',
+          quantity: 5,
+          bestChoice: false
+        },
+        {
+          id: 2,
+          numberOfServings: 40,
+          taste: 'с рыбой',
+          countMouses: 2,
+          weight: 2,
+          description: 'Головы щучьи с чесноком да свежайшая сёмгушка',
+          quantity: 2,
+          bestChoice: false
+        },
+        {
+          id: 3,
+          numberOfServings: 100,
+          taste: 'с курой',
+          countMouses: 5,
+          weight: 5,
+          description: 'Филе из цыплят с трюфелями в бульоне.',
+          quantity: 0,
+          bestChoice: true
+        }
+      ]
+    }
+  },
   components: {
     CardProduct
   }
@@ -59,9 +99,11 @@ export default {
               url("assets/images/background.png");
 }
 .content-wrapper {
-  height: 100vh;
+  min-height: 100vh;
 }
-h1 {
+.main-title {
+  margin-top: 24px;
+  margin-bottom: 24px;
   font-family: 'Exo2', Helvetica, Arial, sans-serif;
   font-size: 36px;
   color: #FFFFFF;
