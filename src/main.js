@@ -18,7 +18,11 @@ Vue.filter('formationWordEndings', function (num, cases) {
           : cases.plu
       );
     }
-    return num + ' ' + word;
+    return word;
+})
+
+Vue.filter('replaceDotByComma', function (value) {
+  return value.toString().replace(/\./, ',');
 })
 
 new Vue({
